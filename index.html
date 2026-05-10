@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MÉTODO NEUROACTIVO 60+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&display=swap');
+        
+        :root {
+            --primary: #2F855A;
+            --primary-dark: #276749;
+            --bg-crema: #FDFBF0;
+            --card-white: rgba(255, 255, 255, 0.98);
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: var(--bg-crema);
+            color: #2D3748;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0; padding: 0; overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .btn-primary { background-color: var(--primary); color: white; transition: all 0.2s; }
+        .btn-primary:active { transform: scale(0.96); background-color: var(--primary-dark); }
+        
+        .glass-card {
+            background: var(--card-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hidden { display: none !important; }
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .main-content {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            padding-bottom: 40px; 
+            margin: 0 auto;
+        }
+
+        .toggle-btn {
+            border: 2px solid #e2e8f0;
+            background: white;
+            transition: all 0.2s;
+            text-align: center;
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 8px 4px;
+            font-size: 12px;
+            display: flex;
+            align-items: center; justify-content: center;
+            cursor: pointer;
+            min-height: 36px;
+        }
+        .toggle-btn.active {
+            border-color: var(--primary);
+            background-color: #F0FFF4;
+            color: var(--primary-dark);
+            border-width: 2px;
+        }
+
+        .ans-btn { transition: all 0.2s; border: 2px solid #e2e8f0; font-weight: 800; padding: 8px; border-radius: 10px; font-size: 14px; background: white;}
+        .ans-btn.correct-highlight { background-color: #C6F6D5 !important; border-color: #2F855A !important; color: #276749 !important; }
+        .ans-btn.wrong-highlight { background-color: #FED7D7 !important; border-color: #C53030 !important; color: #9B2C2C !important; }
+
+        /* Menú Superior */
+        .nav-btn i { font-size: 1.3rem; transition: 0.2s; margin-bottom: 2px; }
+        .nav-btn[data-screen="plan"] i { color: #2F855A; }
+        .nav-btn[data-screen="stats"] i { color: #3182CE; }
+        .nav-btn[data-screen="library"] i { color: #DD6B20; }
+        
+        .nav-btn.active { transform: translateY(2px); font-weight: 800; }
+        .nav-btn.active span { border-bottom: 2px solid currentColor; }
+
+        /* Biblioteca */
+        .lib-section-title { font-weight: 800; font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; margin-top: 16px; border-left: 3px solid var(--primary); padding-left: 10px; }
+        .premium-card {
+            background: white;
+            border-radius: 14px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #edf2f7;
+            margin-bottom: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .premium-card:active { transform: scale(0.98); }
+        .download-icon { color: var(--primary); font-size: 1.2rem; flex-shrink: 0; }
+
+        .ent-card {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #edf2f7;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .ent-card:active { transform: scale(0.95); }
+        .ent-card i { font-size: 1.3rem; }
+        .ent-card h4 { font-size: 10px; font-weight: 800; text-transform: uppercase; line-height: 1.1; color: #4A5568;}
+
+        .avail-text { font-size: 11px; font-weight: 900; color: #2F855A; text-transform: uppercase; letter-spacing: 0.01em; }
+    </style>
+</head>
+<body class="flex flex-col items-center">
+
+    <main class="main-content p-4">
+        
+        <!-- CABECERA -->
+        <header id="app-header" class="flex items-center justify-between py-2 mb-1">
+            <div class="flex items-center gap-2">
+                <div class="w-9 h-9 bg-green-700 rounded-xl flex items-center justify-center text-white shadow-sm">
+                    <i class="fas fa-brain text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-black text-green-900 leading-none uppercase tracking-tighter">APRENDIZAJE GLOBAL</h1>
+                    <p class="text-[6px] font-bold text-green-600 tracking-widest uppercase mt-0.5">MÉTODO NEUROACTIVO 60+</p>
+                </div>
+            </div>
+            <button onclick="location.reload()" class="px-2 py-1 rounded-lg bg-gray-100 text-gray-500 flex items-center gap-1.5 text-[8px] font-bold uppercase hover:bg-gray-200 transition">
+                <i class="fas fa-redo-alt"></i> Reiniciar
+            </button>
+        </header>
+
+        <!-- NAVEGACIÓN PRINCIPAL (ARRIBA) - Oculto al inicio -->
+        <nav id="main-nav" class="sticky top-2 bg-white/95 backdrop-blur-md border border-gray-200 p-2 flex justify-around z-50 shadow-lg rounded-2xl mb-4 hidden">
+            <button onclick="navigate('plan')" class="nav-btn flex flex-col items-center w-20 py-1" data-screen="plan">
+                <i class="fas fa-calendar-day"></i>
+                <span class="text-[9px] font-black mt-1 uppercase tracking-widest text-green-700">Rutina</span>
+            </button>
+            <button onclick="navigate('stats')" class="nav-btn flex flex-col items-center w-20 py-1" data-screen="stats">
+                <i class="fas fa-chart-line"></i>
+                <span class="text-[9px] font-black mt-1 uppercase tracking-widest text-blue-700">Progreso</span>
+            </button>
+            <button onclick="navigate('library')" class="nav-btn flex flex-col items-center w-20 py-1" data-screen="library">
+                <i class="fas fa-folder-open"></i>
+                <span class="text-[9px] font-black mt-1 uppercase tracking-widest text-orange-700">Material</span>
+            </button>
+        </nav>
+
+        <!-- PANTALLA INICIO (ÚNICA) -->
+        <section id="screen-setup" class="glass-card p-6 fade-in mt-12">
+            <div class="mt-4 mb-8 text-center">
+                <h2 class="text-3xl font-black text-green-800 uppercase tracking-tighter leading-none mb-3">MÉTODO NEURO ACTIVO 60+</h2>
+                <div class="h-1 w-20 bg-green-600 mx-auto rounded-full shadow-sm"></div>
+            </div>
+            
+            <div class="space-y-6 pt-2">
+                
+                <div>
+                    <label class="text-xs font-black text-gray-500 uppercase ml-1 mb-2 block">Nombre:</label>
+                    <input type="text" id="user-name" placeholder="Ejemplo: Rosa" class="w-full p-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-base font-bold outline-none focus:border-green-500 transition text-gray-700 placeholder-gray-400">
+                </div>
+
+                <div>
+                    <label class="text-xs font-black text-gray-500 uppercase ml-1 mb-2 block tracking-wider">¿En qué nivel deseas entrenar hoy?</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="selectChoice('level', 'Basico')" id="level-Basico" class="toggle-btn py-4 text-sm active">Básico</button>
+                        <button onclick="selectChoice('level', 'Intermedio')" id="level-Intermedio" class="toggle-btn py-4 text-sm">Intermedio</button>
+                        <button onclick="selectChoice('level', 'Avanzado')" id="level-Avanzado" class="toggle-btn py-4 text-sm">Avanzado</button>
+                    </div>
+                </div>
+
+                <div class="pt-2 text-center border-t-2 border-gray-100">
+                    <p class="text-[11px] font-bold text-gray-700 mt-5 mb-4 uppercase tracking-widest">¿Cuánto tiempo dispones hoy?</p>
+                    <div class="grid grid-cols-3 gap-3 mb-6">
+                        <button onclick="selectChoice('time', 15)" id="time-15" class="toggle-btn py-4 text-base font-black">15m</button>
+                        <button onclick="selectChoice('time', 30)" id="time-30" class="toggle-btn py-4 text-base font-black active">30m</button>
+                        <button onclick="selectChoice('time', 60)" id="time-60" class="toggle-btn py-4 text-base font-black">60m</button>
+                    </div>
+
+                    <button onclick="startTraining()" class="w-full py-4 bg-green-600 hover:bg-green-700 transition text-white rounded-xl font-black text-lg shadow-lg uppercase tracking-widest">
+                        Iniciar Entrenamiento <i class="fas fa-play ml-1"></i>
+                    </button>
+                    
+                    <button onclick="navigate('library')" class="w-full py-4 mt-3 bg-orange-500 hover:bg-orange-600 transition text-white rounded-xl font-black text-sm shadow-md uppercase tracking-widest flex items-center justify-center gap-2">
+                        <i class="fas fa-folder-open text-lg"></i> Ir a Materiales / Drive
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANTALLA DASHBOARD RUTINA -->
+        <section id="screen-plan" class="hidden fade-in">
+            <div id="plan-header" class="mb-4">
+                <h2 id="welcome-txt" class="text-2xl font-black text-green-900 leading-tight">¡Hola!</h2>
+                <p id="welcome-sub" class="text-[10px] text-gray-500 font-bold uppercase tracking-wider mt-0.5">Tu sesión de hoy:</p>
+            </div>
+
+            <div id="task-list" class="space-y-3 mb-6"></div>
+            
+            <div class="glass-card p-4 text-center border-b-[3px] border-green-600">
+                <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden mb-2 shadow-inner">
+                    <div id="session-bar" class="bg-green-600 h-full rounded-full transition-all duration-700" style="width: 0%"></div>
+                </div>
+                <p id="session-percent" class="text-[9px] font-black text-green-700 uppercase tracking-widest">0% COMPLETADO</p>
+            </div>
+
+            <div id="session-done-overlay" class="hidden mt-6 text-center fade-in bg-green-50 p-6 rounded-xl border border-green-100 shadow-sm">
+                <p class="text-green-800 font-black text-lg mb-3 uppercase tracking-tighter">¡Sesión lograda! 🎉</p>
+                <button onclick="navigate('finished')" class="btn-primary w-full py-3.5 rounded-xl font-black uppercase text-sm shadow-md tracking-widest">Ver mi Logro Final</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA JUEGO DIGITAL (CON RONDAS) -->
+        <section id="screen-game" class="hidden fade-in">
+            <div class="glass-card p-5 flex flex-col justify-between" style="min-height: 420px;">
+                <div class="text-center mb-3">
+                    <span id="game-category" class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-[10px] font-black uppercase tracking-wider">Categoría</span>
+                    <p id="game-progress" class="text-[11px] font-black text-gray-500 tracking-widest uppercase mt-3 mb-0.5">RETO 1 DE 3</p>
+                    <h3 id="game-title" class="text-lg font-black mt-1 text-gray-800 leading-tight">Cargando...</h3>
+                </div>
+                
+                <div id="game-content" class="flex-grow flex flex-col justify-center items-center bg-gray-50 rounded-xl p-4 border border-dashed border-gray-200 text-center mb-4"></div>
+                
+                <div id="game-feedback" class="hidden text-center p-3 rounded-lg font-bold text-xs uppercase bg-green-600 text-white mb-3 shadow-sm transition-all duration-300"></div>
+                
+                <div id="game-controls" class="hidden flex gap-3 mb-3">
+                    <button onclick="handleGameHelper('retry')" class="flex-1 py-3 bg-blue-50 text-blue-700 rounded-xl font-black text-xs uppercase border border-blue-100 hover:bg-blue-100 transition shadow-sm">Reintentar</button>
+                    <button onclick="handleGameHelper('solution')" class="flex-1 py-3 bg-gray-100 text-gray-700 rounded-xl font-black text-xs uppercase border border-gray-200 hover:bg-gray-200 transition shadow-sm">Solución</button>
+                </div>
+
+                <button id="btn-complete-game" class="w-full py-4 bg-orange-500 hover:bg-orange-600 transition text-white rounded-xl font-black text-sm hidden shadow-md uppercase tracking-wider">
+                    <!-- El texto de este botón se actualiza dinámicamente -->
+                </button>
+            </div>
+        </section>
+
+        <!-- PANTALLA PRÁCTICA MANUAL (PDFs) -->
+        <section id="screen-print" class="hidden fade-in">
+            <div class="glass-card p-6 text-center border-t-[8px] border-blue-600 shadow-lg mt-2">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <i class="fas fa-file-pdf text-3xl text-blue-600"></i>
+                </div>
+                
+                <p class="text-[9px] text-gray-400 font-black uppercase tracking-[0.2em] mb-1">MÉTODO NEUROACTIVO 60+</p>
+                <h3 id="print-hability-title" class="text-xl font-black text-gray-800 mb-6 uppercase tracking-tight leading-none text-center"></h3>
+                
+                <div id="print-instr" class="mb-6 text-left"></div>
+                
+                <div class="space-y-3">
+                    <button id="btn-open-pdf" class="w-full py-4 bg-blue-600 hover:bg-blue-700 transition text-white rounded-xl font-black text-sm shadow-md flex items-center justify-center gap-2 uppercase tracking-widest">
+                        <i class="fas fa-file-pdf text-xl"></i> Abrir Material
+                    </button>
+                    <button id="btn-view-video" class="w-full py-3 bg-red-50 text-red-600 rounded-xl font-black text-xs hidden uppercase border border-red-100 hover:bg-red-100 transition shadow-sm flex justify-center items-center gap-1.5">
+                        <i class="fas fa-play-circle text-lg"></i> Ver Ejemplo del Ejercicio
+                    </button>
+                    <button id="btn-show-sol-manual" class="w-full py-3 bg-gray-50 text-gray-600 rounded-xl font-black text-xs hidden uppercase border border-gray-200 shadow-sm hover:bg-gray-100 transition">
+                        Ver Solucionario
+                    </button>
+                </div>
+                
+                <button onclick="taskDone()" class="w-full py-4 mt-8 bg-green-600 hover:bg-green-700 transition text-white rounded-xl font-black text-base shadow-lg uppercase tracking-widest">
+                    ¡TERMINADO! <i class="fas fa-check-circle ml-1"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- PANTALLA SESIÓN COMPLETADA -->
+        <section id="screen-finished" class="hidden fade-in text-center py-8 px-4">
+            <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                <i class="fas fa-trophy text-4xl text-orange-500 animate-bounce"></i>
+            </div>
+            <h2 class="text-3xl font-black text-green-900 mb-4 uppercase leading-none text-center tracking-tighter">¡MISIÓN CUMPLIDA!</h2>
+            <p class="text-sm text-gray-600 mb-8 font-medium italic text-center leading-relaxed px-1">"Vuelve aquí mañana para tener una nueva sesión y seguir fortaleciendo tu agilidad mental. La constancia es la clave del éxito."</p>
+            
+            <div class="grid grid-cols-2 gap-3 mb-8">
+                <div class="glass-card p-4 border-b-[4px] border-green-600 shadow-sm">
+                    <p class="text-3xl font-black text-green-700 mb-1">100%</p>
+                    <p class="text-[8px] font-black text-gray-400 uppercase tracking-widest text-center">SESIÓN LOGRADA</p>
+                </div>
+                <div class="glass-card p-4 border-b-[4px] border-blue-600 shadow-sm">
+                    <p class="text-3xl font-black text-blue-700 mb-1">+12</p>
+                    <p class="text-[8px] font-black text-gray-400 uppercase tracking-widest text-center">PUNTOS NEURO</p>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="navigate('library')" class="w-full py-4 bg-orange-500 hover:bg-orange-600 transition text-white rounded-xl font-black text-sm shadow-md uppercase tracking-widest flex justify-center items-center gap-2">
+                    <i class="fas fa-book-open text-lg"></i> Material Complementario
+                </button>
+                <button onclick="window.open(CONFIG_LINKS.resena, '_blank')" class="w-full py-4 bg-blue-600 hover:bg-blue-700 transition text-white rounded-xl font-black text-xs shadow-sm uppercase tracking-widest flex items-center justify-center gap-2">
+                    <i class="fas fa-star text-yellow-300 text-base"></i> Deja tu reseña
+                </button>
+                <button onclick="location.reload()" class="w-full py-3.5 bg-white text-green-700 rounded-xl font-black text-xs shadow-sm uppercase tracking-widest border-2 border-green-700 hover:bg-green-50 transition">
+                    Reiniciar Entrenamiento
+                </button>
+            </div>
+        </section>
+
+        <!-- PANTALLA BIBLIOTECA PREMIUM -->
+        <section id="screen-library" class="hidden fade-in pb-8">
+            <h2 class="text-2xl font-black text-green-900 mb-1 uppercase tracking-tighter">Material Premium</h2>
+            <p class="text-xs text-gray-500 mb-6 font-medium italic">Acceso ilimitado a tu biblioteca oficial.</p>
+            
+            <div class="mb-6">
+                <div class="lib-section-title">MATERIAL DESCARGABLE</div>
+                <div class="space-y-3">
+                    <div onclick="abrirPro(CONFIG_LINKS.demoEbook)" class="premium-card shadow-sm hover:bg-gray-50">
+                        <div class="w-11 h-11 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-sm"><i class="fas fa-book-open"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs text-gray-800 uppercase leading-none mb-1">Ebook NeuroActivo 60+</h4>
+                            <p class="avail-text">+150 ACTIVIDADES DISP.</p>
+                        </div>
+                        <i class="fas fa-cloud-download-alt download-icon"></i>
+                    </div>
+                    <div onclick="abrirPro(CONFIG_LINKS.demoGimnasia)" class="premium-card shadow-sm hover:bg-gray-50">
+                        <div class="w-11 h-11 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-sm"><i class="fas fa-hand-sparkles"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs text-gray-800 uppercase leading-none mb-1">Gimnasia Cerebral</h4>
+                            <p class="avail-text">+50 ACTIVIDADES DISP.</p>
+                        </div>
+                        <i class="fas fa-cloud-download-alt download-icon"></i>
+                    </div>
+                    <div onclick="abrirPro(CONFIG_LINKS.demoMemoria)" class="premium-card shadow-sm hover:bg-gray-50">
+                        <div class="w-11 h-11 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-sm"><i class="fas fa-puzzle-piece"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs text-gray-800 uppercase leading-tight mb-1 truncate">Estimulación Cognitiva</h4>
+                            <p class="avail-text">+250 ACTIVIDADES DISP.</p>
+                        </div>
+                        <i class="fas fa-cloud-download-alt download-icon"></i>
+                    </div>
+                    <div onclick="abrirPro(CONFIG_LINKS.compilacionExtra)" class="premium-card border border-green-300 bg-green-50 shadow-sm hover:bg-green-100">
+                        <div class="w-11 h-11 bg-green-600 text-white rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-sm"><i class="fas fa-layer-group"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs text-gray-900 uppercase leading-none mb-1">Compilación Premium</h4>
+                            <p class="avail-text text-green-800">+300 ACTIVIDADES EXTRA</p>
+                        </div>
+                        <i class="fas fa-cloud-download-alt download-icon text-green-700"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <div class="lib-section-title">MATERIAL EXCLUSIVO</div>
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                    <div class="ent-card border border-purple-100 hover:bg-purple-50" onclick="abrirPro(CONFIG_LINKS.podcast)">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center shadow-sm mb-1"><i class="fas fa-microphone-alt text-lg"></i></div>
+                        <h4 class="text-purple-800 text-[10px]">Audio Podcast</h4>
+                    </div>
+                    <div class="ent-card border border-red-100 hover:bg-red-50" onclick="abrirPro(CONFIG_LINKS.videoMenteActiva)">
+                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center shadow-sm mb-1"><i class="fas fa-play-circle text-lg"></i></div>
+                        <h4 class="text-red-800 text-[9px] leading-tight">Mente Activa -<br>Memoria Fuerte</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <div class="lib-section-title">ZONA DE ENTRETENIMIENTO - PLAN PREMIUM</div>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <div class="ent-card" onclick="abrirPremium()">
+                        <i class="fas fa-book-reader text-blue-500 mb-0.5"></i>
+                        <h4 class="text-[10px]">Libros y Revistas</h4>
+                    </div>
+                    <div class="ent-card" onclick="abrirPremium()">
+                        <i class="fas fa-film text-red-500 mb-0.5"></i>
+                        <h4 class="text-[10px]">CINE CLÁSICO</h4>
+                    </div>
+                    <div class="ent-card" onclick="abrirPremium()">
+                        <i class="fas fa-hat-cowboy text-yellow-600 mb-0.5"></i>
+                        <h4 class="text-[10px]">SERIES RETRO</h4>
+                    </div>
+                    <div class="ent-card" onclick="abrirPremium()">
+                        <i class="fas fa-music text-purple-500 mb-0.5"></i>
+                        <h4 class="text-[10px]">Musicoterapia</h4>
+                    </div>
+                </div>
+
+                <div class="bg-pink-50 border border-pink-200 rounded-xl p-3 flex items-center justify-center gap-3 shadow-inner cursor-pointer hover:bg-pink-100 transition" onclick="abrirPremium()">
+                    <div class="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-gamepad text-xl"></i></div>
+                    <div class="text-left flex-1">
+                        <h4 class="font-black text-xs uppercase tracking-widest leading-none text-pink-700">Juego Interactivo</h4>
+                        <p class="text-[8px] font-bold text-pink-500 mt-1 uppercase leading-none">(PRONTO EN DESARROLLO)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center px-2 space-y-3 pt-4 border-t border-gray-200">
+                <div class="space-y-1">
+                    <p class="text-[11px] font-black text-gray-400 uppercase tracking-widest">Gracias por apoyar este proyecto</p>
+                    <p class="text-[16px] font-black text-green-700 uppercase tracking-tighter leading-none">Aprendizaje Global</p>
+                </div>
+                
+                <button onclick="abrirResena()" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 transition text-white rounded-xl font-black text-xs uppercase shadow-md flex items-center justify-center gap-2">
+                    <i class="fas fa-star text-yellow-300 text-sm"></i> Deja tu reseña
+                </button>
+            </div>
+        </section>
+
+        <!-- PANTALLA PROGRESO -->
+        <section id="screen-stats" class="hidden fade-in mt-2">
+            <h2 class="text-2xl font-black text-green-900 mb-6 uppercase tracking-tighter text-center">Tu Evolución Mental</h2>
+            <div class="glass-card p-4 mb-6 border-l-[6px] border-green-600 shadow-md">
+                <canvas id="statsChart" height="260"></canvas>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-card p-5 text-center border border-green-50 shadow-sm">
+                    <p class="text-4xl font-black text-green-700" id="stat-count">0</p>
+                    <p class="text-[9px] text-gray-400 font-black uppercase mt-2 text-green-800 tracking-widest">LOGROS HOY</p>
+                </div>
+                <div class="glass-card p-5 text-center border border-blue-50 shadow-sm">
+                    <p class="text-4xl font-black text-blue-700">A+</p>
+                    <p class="text-[9px] text-gray-400 font-black uppercase mt-2 text-blue-800 tracking-widest">NIVEL AGILIDAD</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CUSTOM MODAL -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4 fade-in">
+        <div class="bg-white rounded-2xl p-6 shadow-2xl border border-gray-100 max-w-sm w-full text-center">
+            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-info-circle text-3xl text-blue-500"></i>
+            </div>
+            <p id="modal-text" class="text-sm font-bold text-gray-700 mb-6 leading-relaxed"></p>
+            <button onclick="closeMessage()" class="w-full bg-green-600 hover:bg-green-700 transition text-white py-3 rounded-xl font-bold uppercase text-xs tracking-widest shadow-md">Entendido</button>
+        </div>
+    </div>
+
+    <script>
+        // ======================================================================== //
+        // ⬇️⬇️⬇️ ZONA DE CONFIGURACIÓN (ACTUALIZA TEXTOS Y LINKS AQUÍ) ⬇️⬇️⬇️
+        // ======================================================================== //
+        
+        const CONFIG = {
+            // ELIGE EL PLAN ACTUAL DEL USUARIO. Opciones válidas: 'DEMO', 'PRO', 'PREMIUM'
+            // 'DEMO'   -> 1 sola ronda de juegos. Todos los enlaces bloqueados.
+            // 'PRO'    -> Juegos completos. Enlaces descargables y exclusivos activos. Entretenimiento bloqueado.
+            // 'PREMIUM'-> Todo desbloqueado absolutamente.
+            PLAN: 'PRO' 
+        };
+
+        const CONFIG_TEXTS = {
+            // Textos de los mensajes emergentes
+            mensajePro: "¡Activa la versión PRO para desbloquear este material!",
+            mensajePremium: "¡Activa el PLAN PREMIUM para desbloquear la Zona de Entretenimiento!",
+            mensajeJuegoDemo: "¡Prueba superada! Activa la versión PRO para jugar todas las rondas completas y sin límites.",
+            mensajeJuegoPremium: "¡Acceso Premium Autorizado! Estamos subiendo los nuevos contenidos de entretenimiento. ¡Vuelve pronto!",
+            mensajeReintentoDemo: "La función de repetir retos es exclusiva de la versión PRO. ¡Actívala para jugar sin límites!"
+        };
+
+        const CONFIG_LINKS = {
+            // --- ENLACE PARA DEJAR RESEÑA (FACEBOOK) ---
+            resena: "https://www.facebook.com/share/p/1CkEnmqFDb/",
+
+            // --- MATERIALES PREMIUM (DESCARGABLES PDF) ---
+            demoEbook: "https://drive.google.com/file/d/11OJzeg5_vYViA4P_NJmp3xJtW1p5eaWC/view",
+            demoGimnasia: "https://drive.google.com/file/d/1JS9H6z--0kkoEhry5oJs1mQqwSPjeWZW/view",
+            demoMemoria: "https://drive.google.com/drive/folders/1jjnaPUjYtki-pgGDjVAeWrviBDcsdSor",
+            compilacionExtra: "https://drive.google.com/drive/folders/1FxqRQdxjqWKgq3df2qZ2MYrKm96odqmQ?usp=sharing",
+            
+            // --- MATERIAL EXCLUSIVO (AUDIO Y VIDEO) ---
+            podcast: "https://drive.google.com/file/d/1HHq7q2pkrC3F5ErC_rMhMH0Uf_a4TjVY/view",
+            videoMenteActiva: "https://drive.google.com/file/d/1RW5gj8qvuTlPDTK-tkS_rxwbfSylg2RV/view?usp=sharing",
+            
+            // --- VIDEO EJEMPLO (NEURO GIMNASIA MANOS) ---
+            videoNeuroGimnasia: "https://drive.google.com/file/d/1l4VKXRPl6WCbyGXAqNMDzlJD4wZ3PPGs/view?usp=sharing"
+        };
+
+        // --- ENLACES DE LOS ARCHIVOS PDF (ESTIMULACIÓN COGNITIVA SEMANAL) ---
+        const MEMORY_PDFS = [
+            { f: '2026-semana-1.pdf', s: '2026-semana-1sb.pdf', l: 'https://drive.google.com/file/d/1zLfd13BxsFqZsTThKV6pDjdH_j3fO5GE/view?usp=sharing', sl: 'https://drive.google.com/file/d/1fybRt-ax4kibHt9sBQEVd1Yb7tyHSlrG/view?usp=sharing', count: 250 },
+            { f: '2026-semana-2-b.pdf', s: '2026-semana-2s-b.pdf', l: 'https://drive.google.com/file/d/1u03NeHKDc7qeXhUetCWUr4Xm6keirv9X/view?usp=sharing', sl: 'https://drive.google.com/file/d/1D0BxKassvXxyUI5gvrCUIH-OLkqsQQFb/view?usp=sharing', count: 250 },
+            { f: '2026-semana-3.pdf', s: '2026-semana-3s.pdf', l: 'https://drive.google.com/file/d/1LBi1l1Fh87o394zzNiwmbhjFjii_bYcF/view?usp=sharing', sl: 'https://drive.google.com/file/d/1RgajfVGttRmIDp7gyUujy9GpctbG1i1V/view?usp=sharing', count: 250 }
+        ];
+        // ======================================================================== //
+        // ⬆️⬆️⬆️ FIN DE LA ZONA DE ENLACES Y CONFIGURACIÓN ⬆️⬆️⬆️
+        // ======================================================================== //
+
+        // BASE DE DATOS DE PALABRAS PARA JUEGO DE MEMORIA
+        const WORDS_POOL = [
+            "Tierra", "Agua", "Fuego", "Viento", "Libro", "Vaso", "Silla", "Reloj", "Llave", "Fruta", 
+            "Árbol", "Cielo", "Pan", "Sol", "Luna", "Flor", "Playa", "Nube", "Camino", "Río", "Nieve", 
+            "Gato", "Perro", "Casa", "Coche", "Lápiz"
+        ];
+
+        let state = {
+            name: '', level: 'Basico', time: 30,
+            completedTasks: 0, totalTasks: 0,
+            stats: [50, 45, 60, 50, 55], 
+            plan: [], isFinished: false,
+            activeGame: { cat: '', currentRound: 1, totalRounds: 3, correct: null, pool: [], answer: [], isSolShown: false, targetWords: 3 }
+        };
+
+        // GESTIÓN DE ACCESOS SEGÚN PLAN (DEMO, PRO, PREMIUM)
+        function abrirPro(url) {
+            if (CONFIG.PLAN === 'DEMO') {
+                showMessage(CONFIG_TEXTS.mensajePro);
+            } else {
+                if (url) window.open(url, '_blank');
+            }
+        }
+
+        function abrirPremium(url) {
+            if (CONFIG.PLAN === 'DEMO' || CONFIG.PLAN === 'PRO') {
+                showMessage(CONFIG_TEXTS.mensajePremium);
+            } else {
+                if (url) window.open(url, '_blank');
+                else showMessage(CONFIG_TEXTS.mensajeJuegoPremium); 
+            }
+        }
+
+        function abrirResena() {
+            // Permitimos siempre dejar reseña independientemente del plan
+            window.open(CONFIG_LINKS.resena, '_blank');
+        }
+
+        // UI HELPERS
+        function showMessage(text) {
+            const modal = document.getElementById('custom-modal');
+            const txt = document.getElementById('modal-text');
+            if(modal && txt) {
+                txt.innerText = text;
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeMessage() {
+            const modal = document.getElementById('custom-modal');
+            if(modal) modal.classList.add('hidden');
+        }
+
+        function selectChoice(type, val) {
+            state[type] = val;
+            const buttons = document.querySelectorAll(`[id^="${type}-"]`);
+            buttons.forEach(b => { if(b) b.classList.remove('active'); });
+            const el = document.getElementById(`${type}-${val}`);
+            if(el) el.classList.add('active');
+        }
+
+        function startTraining() {
+            state.name = document.getElementById('user-name').value || "AMIG@";
+            generatePlan(state.time);
+            
+            const setupScr = document.getElementById('screen-setup');
+            const planScr = document.getElementById('screen-plan');
+            const nav = document.getElementById('main-nav');
+            const welcome = document.getElementById('welcome-txt');
+            
+            if(setupScr) setupScr.classList.add('hidden');
+            if(planScr) planScr.classList.remove('hidden');
+            if(nav) nav.classList.remove('hidden');
+            if(welcome) welcome.innerText = `¡Hola, ${state.name}!`;
+            
+            renderTaskList();
+            window.scrollTo(0,0);
+        }
+
+        function generatePlan(min) {
+            state.plan = [];
+            
+            let appRounds = 3; 
+            if (min == 30) appRounds = 5;
+            if (min == 60) appRounds = 8;
+            
+            let visualRounds = 3;
+
+            // Si está en MODO DEMO, forzamos a que solo puedan hacer 1 ronda
+            if (CONFIG.PLAN === 'DEMO') {
+                appRounds = 1;
+                visualRounds = 1;
+            }
+
+            state.plan.push({ type: 'app', cat: 'Memoria Digital', available: 500, rounds: appRounds });
+            state.plan.push({ type: 'app', cat: 'Cálculo Mental', available: 1000, rounds: appRounds });
+            state.plan.push({ type: 'app', cat: 'Agudeza Visual', available: 50, rounds: visualRounds });
+
+            let startEbookP = 22;
+            let gimStart = 4;
+            
+            if (state.level === 'Intermedio') {
+                startEbookP = 32;
+                gimStart = 11;
+            } else if (state.level === 'Avanzado') {
+                startEbookP = 42;
+                gimStart = 18;
+            }
+
+            const weekIdx = Math.floor(Math.random() * MEMORY_PDFS.length);
+            const chosenMem = MEMORY_PDFS[weekIdx];
+
+            if (min == 15) {
+                state.plan.push({ type: 'print', cat: 'Método NeuroActivo 60+', file: 'METODO NEUROACTIVO', pages: `Imprimir Pág ${startEbookP} al ${startEbookP+2}`, url: CONFIG_LINKS.demoEbook, available: 150 });
+            } else if (min == 30) {
+                state.plan.push({ type: 'print', cat: 'Método NeuroActivo 60+', file: 'METODO NEUROACTIVO', pages: `Imprimir Pág ${startEbookP} al ${startEbookP+2}`, url: CONFIG_LINKS.demoEbook, available: 150 });
+                state.plan.push({ type: 'print', cat: 'Neuro Gimnasia', file: 'NEURO GIMNASIA MANOS', activity: 'Reto de gestos geométricos', pages: `Imprimir Pág ${gimStart} y ${gimStart+1}`, url: CONFIG_LINKS.demoGimnasia, showVideo: true, available: 50 });
+                state.plan.push({ type: 'print', cat: 'Estimulación Cognitiva Integral', file: chosenMem.f, sol: chosenMem.s, url: chosenMem.l, hasSol: true, solUrl: chosenMem.sl, pages: "Imprimir Pág 1 y 2", summary: "Este programa fortalece razonamiento lógico, fluidez léxica y capacidad viso-espacial.", available: 250 });
+            } else if (min == 60) {
+                state.plan.push({ type: 'print', cat: 'Método NeuroActivo 60+', file: 'METODO NEUROACTIVO', pages: `Imprimir Pág ${startEbookP} al ${startEbookP+3}`, url: CONFIG_LINKS.demoEbook, available: 150 });
+                state.plan.push({ type: 'print', cat: 'Neuro Gimnasia', file: 'NEURO GIMNASIA MANOS', activity: 'Reto de gestos geométricos', pages: `Imprimir Pág ${gimStart} al ${gimStart+3}`, url: CONFIG_LINKS.demoGimnasia, showVideo: true, available: 50 });
+                state.plan.push({ type: 'print', cat: 'Estimulación Cognitiva Integral', file: chosenMem.f, sol: chosenMem.s, url: chosenMem.l, hasSol: true, solUrl: chosenMem.sl, pages: "Imprimir Pág 1 al 4", summary: "Este programa integral fortalece la comprensión lectora, el razonamiento lógico-matemático y la planificación cognitiva.", available: 250 });
+            }
+
+            state.totalTasks = state.plan.length;
+            state.completedTasks = 0;
+            state.isFinished = false;
+        }
+
+        function renderTaskList() {
+            const list = document.getElementById('task-list');
+            const headerSub = document.getElementById('welcome-sub');
+            const overlay = document.getElementById('session-done-overlay');
+            if(!list || !headerSub || !overlay) return;
+            
+            list.innerHTML = '';
+            
+            if (state.isFinished || state.completedTasks === state.totalTasks) {
+                headerSub.innerText = "¡Misión cumplida!";
+                overlay.classList.remove('hidden');
+                updateProgressBar();
+                return; 
+            } else {
+                headerSub.innerText = "Entrenamiento de hoy:";
+                overlay.classList.add('hidden');
+            }
+
+            state.plan.forEach((task, index) => {
+                const isDone = index < state.completedTasks;
+                const isCur = index === state.completedTasks;
+                list.innerHTML += `
+                    <div class="glass-card p-3 flex items-center justify-between border-l-[4px] ${isDone ? 'border-gray-200 opacity-50 bg-gray-50' : (isCur ? 'border-green-600 shadow-sm' : 'border-green-100')} transition-all">
+                        <div class="flex items-center gap-3 flex-1 min-w-0 pr-2">
+                            <div class="w-10 h-10 rounded-xl flex-shrink-0 ${isDone ? 'bg-green-600 text-white' : 'bg-green-100 text-green-700'} flex items-center justify-center font-black text-sm">${isDone ? '<i class="fas fa-check"></i>' : index + 1}</div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-[13px] text-gray-800 uppercase tracking-tighter leading-tight">${task.cat}</h4>
+                                <div class="flex flex-row items-center gap-1 mt-1 flex-wrap">
+                                    <span class="text-[10px] font-black uppercase text-gray-500 tracking-widest leading-none">
+                                        ${task.type === 'app' ? '<i class="fas fa-mobile-alt mr-1"></i> Digital.' : '<i class="fas fa-print mr-1"></i> Papel.'}
+                                    </span>
+                                    <span class="avail-text">+${task.available} ${task.type === 'app' ? 'RETOS DISPONIBLES.' : 'ACTIVIDADES DISP.'}</span>
+                                </div>
+                            </div>
+                        </div>
+                        ${isCur ? `<button onclick="launchTask(${index})" class="flex-shrink-0 bg-green-700 hover:bg-green-800 transition text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase shadow-sm">Iniciar</button>` : ''}
+                    </div>`;
+            });
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const p = (state.completedTasks / state.totalTasks) * 100;
+            const bar = document.getElementById('session-bar');
+            const percent = document.getElementById('session-percent');
+            if(bar) bar.style.width = `${p}%`;
+            if(percent) percent.innerText = `${Math.round(p)}% COMPLETADO`;
+        }
+
+        // CONTROLADOR PRINCIPAL DE JUEGOS DIGITALES
+        function launchTask(idx) {
+            const task = state.plan[idx];
+            if(task.type === 'app') {
+                state.activeGame = { 
+                    cat: task.cat, 
+                    currentRound: 1,
+                    totalRounds: task.rounds,
+                    correct: null, pool: [], answer: [], isSolShown: false, targetWords: 3
+                };
+                if(task.cat === 'Memoria Digital') runMemoryGame();
+                else if(task.cat === 'Cálculo Mental') runCalcGame();
+                else runAttentionGame();
+            } else showPrint(task);
+        }
+
+        function nextRound() {
+            state.activeGame.currentRound++;
+            
+            if(state.activeGame.cat === 'Memoria Digital') runMemoryGame();
+            else if(state.activeGame.cat === 'Cálculo Mental') runCalcGame();
+            else runAttentionGame();
+        }
+
+        function showAdvanceButton() {
+            const btn = document.getElementById('btn-complete-game');
+            if(!btn) return;
+            btn.classList.remove('hidden');
+            
+            if(state.activeGame.currentRound < state.activeGame.totalRounds) {
+                btn.innerHTML = 'Siguiente Reto <i class="fas fa-arrow-right ml-1"></i>';
+                btn.onclick = nextRound;
+                btn.className = "w-full py-4 bg-green-700 hover:bg-green-800 transition text-white rounded-xl font-black text-sm shadow-md uppercase tracking-wider";
+            } else {
+                if (CONFIG.PLAN === 'DEMO') {
+                    btn.innerHTML = 'Terminar Muestra <i class="fas fa-check-circle ml-1"></i>';
+                    btn.onclick = () => {
+                        showMessage(CONFIG_TEXTS.mensajeJuegoDemo);
+                        taskDone();
+                    };
+                } else {
+                    btn.innerHTML = '¡Lo logré! Continuar <i class="fas fa-check-circle ml-1"></i>';
+                    btn.onclick = taskDone;
+                }
+                btn.className = "w-full py-4 bg-orange-500 hover:bg-orange-600 transition text-white rounded-xl font-black text-sm shadow-md uppercase tracking-wider";
+            }
+        }
+
+        function handleGameHelper(action) {
+            if(action === 'retry') {
+                if (CONFIG.PLAN === 'DEMO') {
+                    showMessage(CONFIG_TEXTS.mensajeReintentoDemo);
+                    return;
+                }
+                
+                if(state.activeGame.cat === 'Memoria Digital') runMemoryGame();
+                if(state.activeGame.cat === 'Cálculo Mental') runCalcGame();
+                if(state.activeGame.cat === 'Agudeza Visual') runAttentionGame();
+            } else {
+                state.activeGame.isSolShown = true;
+                if(state.activeGame.cat === 'Memoria Digital') renderMemoryOptions();
+                if(state.activeGame.cat === 'Cálculo Mental') {
+                    const buttons = document.querySelectorAll('.ans-btn');
+                    buttons.forEach(b => { if(parseInt(b.innerText) === state.activeGame.correct) b.classList.add('correct-highlight'); });
+                }
+                if(state.activeGame.cat === 'Agudeza Visual') {
+                    const buttons = document.querySelectorAll('.attn-btn');
+                    buttons.forEach(b => { if(b.innerText === state.activeGame.correct) b.classList.add('correct-highlight'); });
+                }
+                showAdvanceButton();
+            }
+        }
+
+        // 1. MEMORIA DIGITAL
+        function runMemoryGame() {
+            navigate('game');
+            
+            state.activeGame.isSolShown = false;
+            state.activeGame.answer = [];
+            state.activeGame.pool = [];
+            
+            let numWords = 3;
+            if(state.level === 'Intermedio') numWords = 4;
+            if(state.level === 'Avanzado') numWords = 5;
+            state.activeGame.targetWords = numWords;
+
+            const cat = document.getElementById('game-category');
+            const title = document.getElementById('game-title');
+            const prog = document.getElementById('game-progress');
+            
+            if(cat) cat.innerText = "Memoria Digital";
+            if(prog) prog.innerText = `RETO ${state.activeGame.currentRound} DE ${state.activeGame.totalRounds}`;
+            if(title) title.innerText = `Memoriza estas ${numWords} palabras`;
+            
+            document.getElementById('btn-complete-game')?.classList.add('hidden');
+            document.getElementById('game-feedback')?.classList.add('hidden');
+            document.getElementById('game-controls')?.classList.add('hidden');
+            
+            state.activeGame.correct = [...WORDS_POOL].sort(() => 0.5 - Math.random()).slice(0, numWords);
+            const content = document.getElementById('game-content');
+            if(content) content.innerHTML = `<div class="text-2xl font-black space-y-3 text-green-800 uppercase tracking-wider">${state.activeGame.correct.map(w => `<p class="fade-in bg-white px-5 py-2 rounded-xl shadow-sm border border-gray-100">${w}</p>`).join('')}</div>`;
+            
+            setTimeout(() => {
+                if(title) title.innerText = `Toca las ${numWords} palabras que viste`;
+                
+                let distractCount = numWords; 
+                const distract = [...WORDS_POOL].filter(w => !state.activeGame.correct.includes(w)).sort(() => 0.5 - Math.random()).slice(0, distractCount);
+                state.activeGame.pool = [...state.activeGame.correct, ...distract].sort(() => 0.5 - Math.random());
+                
+                renderMemoryOptions();
+                document.getElementById('game-controls')?.classList.remove('hidden');
+            }, 4500);
+        }
+
+        function renderMemoryOptions() {
+            const c = document.getElementById('game-content');
+            if(!c) return;
+            c.innerHTML = `<div class="grid grid-cols-2 gap-2 w-full">${state.activeGame.pool.map(w => {
+                const sel = state.activeGame.answer.includes(w);
+                const sol = state.activeGame.isSolShown && state.activeGame.correct.includes(w);
+                return `<button onclick="pickMemoryWord(this, '${w}')" class="ans-btn py-3 text-sm ${sel ? 'border-primary bg-green-50 shadow-inner' : 'shadow-sm'} ${sol ? 'correct-highlight' : ''}">${w}</button>`;
+            }).join('')}</div>`;
+        }
+
+        function pickMemoryWord(btn, w) {
+            if(state.activeGame.isSolShown) return;
+            const numWords = state.activeGame.targetWords;
+            const idx = state.activeGame.answer.indexOf(w);
+            
+            if(idx > -1) { 
+                state.activeGame.answer.splice(idx,1); 
+                btn.classList.remove('border-primary', 'bg-green-50', 'shadow-inner'); 
+                btn.classList.add('shadow-sm'); 
+            } else if(state.activeGame.answer.length < numWords) { 
+                state.activeGame.answer.push(w); 
+                btn.classList.add('border-primary', 'bg-green-50', 'shadow-inner'); 
+                btn.classList.remove('shadow-sm'); 
+            }
+            
+            if(state.activeGame.answer.length === numWords) {
+                const win = state.activeGame.answer.every(v => state.activeGame.correct.includes(v));
+                if(win) finishGame("¡Excelente Memoria!");
+                else showMessage("Hay errores en tu selección. Inténtalo de nuevo o mira la solución.");
+            }
+        }
+
+        // 2. CÁLCULO MENTAL
+        function runCalcGame() {
+            navigate('game');
+            state.activeGame.isSolShown = false;
+            
+            let contentHTML = "";
+            let correct = 0;
+            let alts = [];
+
+            if (state.level === 'Basico') {
+                const a = Math.floor(Math.random()*20)+10; 
+                const b = Math.floor(Math.random()*15)+5;  
+                correct = a + b;
+                contentHTML = `<div class="text-6xl font-black mb-8 text-green-700 drop-shadow-sm">${a} + ${b}</div>`;
+                alts = [correct, correct+5, correct-3].sort(()=>0.5-Math.random());
+                
+            } else if (state.level === 'Intermedio') {
+                const a = Math.floor(Math.random()*30)+15; 
+                const b = Math.floor(Math.random()*15)+5;  
+                const c = Math.floor(Math.random()*15)+5;  
+                correct = a + b + c;
+                contentHTML = `
+                    <div class="flex justify-center w-full mb-4 mt-2">
+                        <div class="text-5xl font-black text-green-700 drop-shadow-sm text-right relative inline-block leading-tight">
+                            <div>${a}</div>
+                            <div>${b}</div>
+                            <div class="border-b-[5px] border-green-700 pb-2 mb-3">
+                                <span class="absolute -left-10">+</span>${c}
+                            </div>
+                        </div>
+                    </div>`;
+                alts = [correct, correct+8, correct-4].sort(()=>0.5-Math.random());
+                
+            } else {
+                const a = Math.floor(Math.random()*200)+100; 
+                const b = Math.floor(Math.random()*100)+50;  
+                const c = Math.floor(Math.random()*50)+20;   
+                correct = a + b + c;
+                contentHTML = `
+                    <div class="flex justify-center w-full mb-4 mt-2">
+                        <div class="text-5xl font-black text-green-700 drop-shadow-sm text-right relative inline-block leading-tight">
+                            <div>${a}</div>
+                            <div>${b}</div>
+                            <div class="border-b-[5px] border-green-700 pb-2 mb-3">
+                                <span class="absolute -left-12">+</span>${c}
+                            </div>
+                        </div>
+                    </div>`;
+                alts = [correct, correct+12, correct-10].sort(()=>0.5-Math.random());
+            }
+            
+            state.activeGame.correct = correct; 
+            
+            const cat = document.getElementById('game-category');
+            const title = document.getElementById('game-title');
+            const prog = document.getElementById('game-progress');
+            
+            if(cat) cat.innerText = "Cálculo Mental";
+            if(prog) prog.innerText = `RETO ${state.activeGame.currentRound} DE ${state.activeGame.totalRounds}`;
+            if(title) title.innerText = "¿Cuál es el resultado?";
+            
+            document.getElementById('btn-complete-game')?.classList.add('hidden');
+            document.getElementById('game-feedback')?.classList.add('hidden');
+            document.getElementById('game-controls')?.classList.remove('hidden');
+            
+            const content = document.getElementById('game-content');
+            if(content) content.innerHTML = `${contentHTML}<div class="grid grid-cols-3 gap-2 w-full">${alts.map(n => `<button onclick="checkCalc(this, ${n})" class="ans-btn py-4 text-xl shadow-sm hover:bg-gray-50 transition">${n}</button>`).join('')}</div>`;
+        }
+
+        function checkCalc(btn, val) {
+            if(state.activeGame.isSolShown) return;
+            if(val === state.activeGame.correct) { btn.classList.add('correct-highlight'); finishGame("¡Resultado Correcto!"); }
+            else { btn.classList.add('wrong-highlight'); showMessage("No es correcto. Intenta con otra cifra."); }
+        }
+
+        // 3. AGUDEZA VISUAL
+        function runAttentionGame() {
+            navigate('game');
+            state.activeGame.isSolShown = false;
+            state.activeGame.answer = []; 
+            
+            const allEmojis = ['🐯','🐼','🦊','🐸','🦁','🐷','🐘','🐨','🐵','🦉','🐙','🐢','🐝','🐞','🐠','🦋','🐌','🐛','🐬','🐧'];
+            
+            const shuffled = allEmojis.sort(() => 0.5 - Math.random()).slice(0, 8);
+            
+            const targetEmoji = shuffled[0];
+            const distractors = shuffled.slice(1);
+            
+            let pool = [targetEmoji, targetEmoji, ...distractors];
+            pool = pool.sort(() => 0.5 - Math.random());
+            
+            state.activeGame.correct = targetEmoji;
+            
+            const cat = document.getElementById('game-category');
+            const title = document.getElementById('game-title');
+            const prog = document.getElementById('game-progress');
+            
+            if(cat) cat.innerText = "Agudeza Visual";
+            if(prog) prog.innerText = `RETO ${state.activeGame.currentRound} DE ${state.activeGame.totalRounds}`;
+            if(title) title.innerText = "Toca las 2 imágenes iguales";
+            
+            document.getElementById('btn-complete-game')?.classList.add('hidden');
+            document.getElementById('game-feedback')?.classList.add('hidden');
+            document.getElementById('game-controls')?.classList.remove('hidden');
+            
+            const content = document.getElementById('game-content');
+            if(content) content.innerHTML = `<div class="grid grid-cols-3 gap-3 w-full px-2">${pool.map((e, idx) => `<button onclick="checkAttn(this, '${e}', ${idx})" class="attn-btn ans-btn text-5xl py-4 shadow-sm hover:scale-105 transition-transform bg-white">${e}</button>`).join('')}</div>`;
+        }
+
+        function checkAttn(btn, val, idx) {
+            if(state.activeGame.isSolShown) return;
+            
+            if(state.activeGame.answer.includes(idx)) return;
+
+            if(val === state.activeGame.correct) { 
+                btn.classList.add('correct-highlight'); 
+                state.activeGame.answer.push(idx);
+                
+                if(state.activeGame.answer.length === 2) {
+                    finishGame("¡Excelente! Encontraste la pareja."); 
+                }
+            }
+            else { 
+                btn.classList.add('wrong-highlight'); 
+                showMessage("Esa no tiene pareja. Busca las dos iguales."); 
+                setTimeout(() => {
+                    if (!state.activeGame.isSolShown) btn.classList.remove('wrong-highlight');
+                }, 800);
+            }
+        }
+
+        function finishGame(msg) {
+            const fb = document.getElementById('game-feedback');
+            if(fb) {
+                fb.innerText = msg; fb.classList.remove('hidden');
+                fb.className = "mt-3 text-center p-3 rounded-xl bg-green-600 text-white font-black text-xs uppercase shadow-sm";
+            }
+            showAdvanceButton();
+        }
+
+        // MANEJO DE TAREAS EN PAPEL (PDF)
+        function showPrint(task) {
+            navigate('print');
+            const tit = document.getElementById('print-hability-title');
+            const ins = document.getElementById('print-instr');
+            if(!tit || !ins) return;
+
+            let displayTitle = task.cat;
+            if(task.cat === 'Método NeuroActivo 60+') displayTitle = 'Método NeuroActivo 60+';
+            if(task.cat === 'Neuro Gimnasia') displayTitle = 'Neuro Gimnasia';
+            if(task.cat === 'Estimulación Cognitiva Integral') displayTitle = 'Estimulación Cognitiva';
+
+            tit.innerText = displayTitle;
+            
+            let instrHtml = `<div class="glass-card bg-blue-50 p-4 rounded-2xl border-2 border-dashed border-blue-200 mb-4 text-center shadow-inner">
+                    <p class="text-[11px] font-black text-blue-900 mb-1 uppercase tracking-tighter leading-tight">${task.file}</p>
+                    <p class="text-xl font-black text-blue-600 uppercase leading-none mb-3">${task.pages}</p>
+                    <p class="avail-text bg-white inline-block px-3 py-1.5 rounded-full shadow-sm border border-green-200">+${task.available} ACTIVIDADES DISPONIBLES</p>
+                </div>`;
+            
+            if(task.activity) instrHtml += `<p class="text-xs font-bold text-gray-700 mb-3 uppercase text-center italic"><i class="fas fa-star text-yellow-400 mr-1"></i> ACTIVIDAD: ${task.activity}</p>`;
+            if(task.summary) instrHtml += `<div class="bg-gray-100 p-3 rounded-xl border border-gray-200 mb-3 shadow-sm"><p class="text-[11px] text-gray-600 leading-relaxed font-bold">${task.summary}</p></div>`;
+            
+            ins.innerHTML = instrHtml;
+            
+            document.getElementById('btn-open-pdf').onclick = () => abrirPro(task.url);
+            
+            const vBtn = document.getElementById('btn-view-video');
+            if(vBtn) {
+                if(task.showVideo) { vBtn.classList.remove('hidden'); vBtn.onclick = () => abrirPro(CONFIG_LINKS.videoNeuroGimnasia); }
+                else { vBtn.classList.add('hidden'); }
+            }
+            const sBtn = document.getElementById('btn-show-sol-manual');
+            if(sBtn) {
+                if(task.hasSol) { sBtn.classList.remove('hidden'); sBtn.onclick = () => abrirPro(task.slUrl || task.solUrl); }
+                else { sBtn.classList.add('hidden'); }
+            }
+        }
+
+        function taskDone() {
+            state.completedTasks++;
+            updateProgressBar();
+            if(state.completedTasks >= state.totalTasks) {
+                state.isFinished = true;
+                setTimeout(() => navigate('finished'), 500);
+            } else {
+                navigate('plan');
+            }
+        }
+
+        // NAVEGACIÓN Y MENÚS
+        function navigate(screen) {
+            if (screen !== 'setup') {
+                const nav = document.getElementById('main-nav');
+                if (nav) nav.classList.remove('hidden');
+            }
+
+            if (state.isFinished && screen === 'plan') {
+                screen = 'finished';
+            }
+
+            const scrs = ['setup', 'plan', 'game', 'print', 'stats', 'library', 'finished'];
+            scrs.forEach(s => {
+                const el = document.getElementById(`screen-${s}`);
+                if(el) el.classList.add('hidden');
+            });
+            const activeScreen = document.getElementById(`screen-${screen}`);
+            if(activeScreen) activeScreen.classList.remove('hidden');
+            
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(b => { if(b) b.classList.remove('active'); });
+            const activeNav = document.querySelector(`.nav-btn[data-screen="${screen}"]`);
+            if(activeNav) activeNav.classList.add('active');
+
+            if(screen === 'stats') initChart();
+            const statCountEl = document.getElementById('stat-count');
+            if (statCountEl) { statCountEl.innerText = state.completedTasks; }
+            if (screen === 'plan') renderTaskList();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function initChart() {
+            const canvas = document.getElementById('statsChart');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if(window.myChart) window.myChart.destroy();
+            window.myChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Memoria', 'Cálculo', 'Atención', 'Motricidad', 'Lógica'],
+                    datasets: [{
+                        data: state.stats,
+                        backgroundColor: 'rgba(47, 133, 90, 0.15)',
+                        borderColor: '#2F855A',
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#2F855A',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: { 
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { r: { suggestedMin: 0, suggestedMax: 100, ticks: { display: false }, pointLabels: { font: { size: 11, weight: 'bold', family: 'Lexend' }, color: '#4A5568' } } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
