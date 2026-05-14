@@ -120,7 +120,7 @@
         .avail-text { font-size: 11px; font-weight: 900; color: #2F855A; text-transform: uppercase; letter-spacing: 0.01em; }
     </style>
 </head>
-<body class="flex flex-col items-center">
+<body class="flex flex-col items-center relative">
 
     <main class="main-content p-4">
         
@@ -135,7 +135,8 @@
                     <p class="text-[6px] font-bold text-green-600 tracking-widest uppercase mt-0.5">MÉTODO NEUROACTIVO 60+</p>
                 </div>
             </div>
-            <button onclick="location.reload()" class="px-2 py-1 rounded-lg bg-gray-100 text-gray-500 flex items-center gap-1.5 text-[8px] font-bold uppercase hover:bg-gray-200 transition">
+            <!-- Botón Reiniciar con Validación -->
+            <button onclick="handleReiniciar()" class="px-2 py-1 rounded-lg bg-gray-100 text-gray-500 flex items-center gap-1.5 text-[8px] font-bold uppercase hover:bg-gray-200 transition">
                 <i class="fas fa-redo-alt"></i> Reiniciar
             </button>
         </header>
@@ -157,41 +158,41 @@
         </nav>
 
         <!-- PANTALLA INICIO (ÚNICA) -->
-        <section id="screen-setup" class="glass-card p-6 fade-in mt-12">
-            <div class="mt-4 mb-8 text-center">
+        <section id="screen-setup" class="glass-card p-5 fade-in mt-6">
+            <div class="mt-2 mb-5 text-center">
                 <h2 class="text-3xl font-black text-green-800 uppercase tracking-tighter leading-none mb-3">MÉTODO NEURO ACTIVO 60+</h2>
                 <div class="h-1 w-20 bg-green-600 mx-auto rounded-full shadow-sm"></div>
             </div>
             
-            <div class="space-y-6 pt-2">
+            <div class="space-y-4 pt-1">
                 
                 <div>
-                    <label class="text-xs font-black text-gray-500 uppercase ml-1 mb-2 block">Nombre:</label>
-                    <input type="text" id="user-name" placeholder="Ejemplo: Rosa" class="w-full p-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-base font-bold outline-none focus:border-green-500 transition text-gray-700 placeholder-gray-400">
+                    <label class="text-xs font-black text-gray-500 uppercase ml-1 mb-1 block">Nombre:</label>
+                    <input type="text" id="user-name" placeholder="Ejemplo: Rosa" class="w-full p-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-base font-bold outline-none focus:border-green-500 transition text-gray-700 placeholder-gray-400">
                 </div>
 
                 <div>
-                    <label class="text-xs font-black text-gray-500 uppercase ml-1 mb-2 block tracking-wider">¿En qué nivel deseas entrenar hoy?</label>
+                    <label class="text-xs font-black text-gray-500 uppercase ml-1 mb-1.5 block tracking-wider">¿En qué nivel deseas entrenar hoy?</label>
                     <div class="grid grid-cols-3 gap-2">
-                        <button onclick="selectChoice('level', 'Basico')" id="level-Basico" class="toggle-btn py-4 text-sm active">Básico</button>
-                        <button onclick="selectChoice('level', 'Intermedio')" id="level-Intermedio" class="toggle-btn py-4 text-sm">Intermedio</button>
-                        <button onclick="selectChoice('level', 'Avanzado')" id="level-Avanzado" class="toggle-btn py-4 text-sm">Avanzado</button>
+                        <button onclick="selectChoice('level', 'Basico')" id="level-Basico" class="toggle-btn py-3 text-sm active">Básico</button>
+                        <button onclick="selectChoice('level', 'Intermedio')" id="level-Intermedio" class="toggle-btn py-3 text-sm">Intermedio</button>
+                        <button onclick="selectChoice('level', 'Avanzado')" id="level-Avanzado" class="toggle-btn py-3 text-sm">Avanzado</button>
                     </div>
                 </div>
 
-                <div class="pt-2 text-center border-t-2 border-gray-100">
-                    <p class="text-[11px] font-bold text-gray-700 mt-5 mb-4 uppercase tracking-widest">¿Cuánto tiempo dispones hoy?</p>
-                    <div class="grid grid-cols-3 gap-3 mb-6">
-                        <button onclick="selectChoice('time', 15)" id="time-15" class="toggle-btn py-4 text-base font-black">15m</button>
-                        <button onclick="selectChoice('time', 30)" id="time-30" class="toggle-btn py-4 text-base font-black active">30m</button>
-                        <button onclick="selectChoice('time', 60)" id="time-60" class="toggle-btn py-4 text-base font-black">60m</button>
+                <div class="pt-3 text-center border-t-2 border-gray-100">
+                    <p class="text-[11px] font-bold text-gray-700 mt-2 mb-3 uppercase tracking-widest">¿Cuánto tiempo dispones hoy?</p>
+                    <div class="grid grid-cols-3 gap-3 mb-4">
+                        <button onclick="selectChoice('time', 15)" id="time-15" class="toggle-btn py-3 text-base font-black">15m</button>
+                        <button onclick="selectChoice('time', 30)" id="time-30" class="toggle-btn py-3 text-base font-black active">30m</button>
+                        <button onclick="selectChoice('time', 60)" id="time-60" class="toggle-btn py-3 text-base font-black">60m</button>
                     </div>
 
-                    <button onclick="startTraining()" class="w-full py-4 bg-green-600 hover:bg-green-700 transition text-white rounded-xl font-black text-lg shadow-lg uppercase tracking-widest">
+                    <button onclick="startTraining()" class="w-full py-3.5 bg-green-600 hover:bg-green-700 transition text-white rounded-xl font-black text-base shadow-lg uppercase tracking-widest">
                         Iniciar Entrenamiento <i class="fas fa-play ml-1"></i>
                     </button>
                     
-                    <button onclick="navigate('library')" class="w-full py-4 mt-3 bg-orange-500 hover:bg-orange-600 transition text-white rounded-xl font-black text-sm shadow-md uppercase tracking-widest flex items-center justify-center gap-2">
+                    <button onclick="navigate('library')" class="w-full py-3 mt-2.5 bg-orange-500 hover:bg-orange-600 transition text-white rounded-xl font-black text-sm shadow-md uppercase tracking-widest flex items-center justify-center gap-2">
                         <i class="fas fa-folder-open text-lg"></i> Ir a Materiales / Drive
                     </button>
                 </div>
@@ -297,10 +298,11 @@
                 <button onclick="navigate('library')" class="w-full py-4 bg-orange-500 hover:bg-orange-600 transition text-white rounded-xl font-black text-sm shadow-md uppercase tracking-widest flex justify-center items-center gap-2">
                     <i class="fas fa-book-open text-lg"></i> Material Complementario
                 </button>
-                <button onclick="window.open(CONFIG_LINKS.resena, '_blank')" class="w-full py-4 bg-blue-600 hover:bg-blue-700 transition text-white rounded-xl font-black text-xs shadow-sm uppercase tracking-widest flex items-center justify-center gap-2">
+                <button onclick="abrirResena()" class="w-full py-4 bg-blue-600 hover:bg-blue-700 transition text-white rounded-xl font-black text-xs shadow-sm uppercase tracking-widest flex items-center justify-center gap-2">
                     <i class="fas fa-star text-yellow-300 text-base"></i> Deja tu reseña
                 </button>
-                <button onclick="location.reload()" class="w-full py-3.5 bg-white text-green-700 rounded-xl font-black text-xs shadow-sm uppercase tracking-widest border-2 border-green-700 hover:bg-green-50 transition">
+                <!-- Botón Reiniciar con Validación -->
+                <button onclick="handleReiniciar()" class="w-full py-3.5 bg-white text-green-700 rounded-xl font-black text-xs shadow-sm uppercase tracking-widest border-2 border-green-700 hover:bg-green-50 transition">
                     Reiniciar Entrenamiento
                 </button>
             </div>
@@ -308,7 +310,7 @@
 
         <!-- PANTALLA BIBLIOTECA PREMIUM -->
         <section id="screen-library" class="hidden fade-in pb-8">
-            <h2 class="text-2xl font-black text-green-900 mb-1 uppercase tracking-tighter">Material Premium</h2>
+            <h2 class="text-2xl font-black text-green-900 mb-1 uppercase tracking-tighter">Material Exclusivo</h2>
             <p class="text-xs text-gray-500 mb-6 font-medium italic">Acceso ilimitado a tu biblioteca oficial.</p>
             
             <div class="mb-6">
@@ -425,7 +427,12 @@
 
     </main>
 
-    <!-- CUSTOM MODAL -->
+    <!-- BOTÓN FLOTANTE: MEJORAR / APOYAR -->
+    <button id="btn-upgrade-float" onclick="openUpgradeModal()" class="hidden fixed bottom-6 right-4 z-40 bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 transition-transform hover:scale-105 font-black text-[11px] uppercase tracking-widest border-2 border-yellow-200">
+        <i class="fas fa-crown text-lg"></i> <span id="float-btn-text">Mejorar</span>
+    </button>
+
+    <!-- MODAL SIMPLE DE JUEGO (CORRECCIONES) -->
     <div id="custom-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4 fade-in">
         <div class="bg-white rounded-2xl p-6 shadow-2xl border border-gray-100 max-w-sm w-full text-center">
             <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -436,6 +443,39 @@
         </div>
     </div>
 
+    <!-- MODAL DE MEJORA DE CUENTA Y DONACIÓN (WHATSAPP + QR) -->
+    <div id="upgrade-modal" class="hidden fixed inset-0 z-[110] flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm px-4 fade-in">
+        <div class="bg-white rounded-3xl p-6 shadow-2xl border-2 border-yellow-200 max-w-sm w-full text-center relative">
+            <button onclick="closeUpgradeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center"><i class="fas fa-times"></i></button>
+            
+            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <i class="fas fa-crown text-3xl text-yellow-500"></i>
+            </div>
+            
+            <h3 class="text-xl font-black text-gray-800 mb-2 uppercase tracking-tighter leading-tight" id="upgrade-title">MEJORAR CUENTA</h3>
+            <p class="text-[13px] text-gray-600 mb-5 font-medium leading-relaxed px-2" id="upgrade-text">Texto dinámico</p>
+            
+            <!-- SECCIÓN DEL CÓDIGO QR -->
+            <div class="bg-gray-50 p-4 rounded-2xl mb-5 border border-gray-200">
+                <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">Escanea para apoyar / Donar</p>
+                
+                <!-- Contenedor del QR más grande y centrado -->
+                <div class="w-44 h-44 bg-white mx-auto rounded-xl border border-gray-200 flex items-center justify-center shadow-sm overflow-hidden p-2">
+                    
+                    <!-- Pon el link de tu imagen dentro de src="..." -->
+                    <img src="https://raw.githubusercontent.com/marketingbrands/neuroactivo/2abb93a17455b77ccda7b87ec7be9e9505363e3f/NEURO%20ACTIVO%2050%2B%20(2).png" alt="Código QR" class="w-full h-full object-contain">
+                    
+                </div>
+
+                <p class="text-[10px] text-gray-500 mt-3 font-bold">Yape: 943833945 Jesús B.</p>
+            </div>
+
+            <button onclick="window.open(CONFIG_LINKS.whatsapp, '_blank')" class="w-full py-4 bg-green-600 hover:bg-green-700 transition text-white rounded-xl font-black text-sm uppercase tracking-widest shadow-lg flex items-center justify-center gap-2">
+                <i class="fab fa-whatsapp text-xl"></i> Contactar por WhatsApp
+            </button>
+        </div>
+    </div>
+
     <script>
         // ======================================================================== //
         // ⬇️⬇️⬇️ ZONA DE CONFIGURACIÓN (ACTUALIZA TEXTOS Y LINKS AQUÍ) ⬇️⬇️⬇️
@@ -443,22 +483,26 @@
         
         const CONFIG = {
             // ELIGE EL PLAN ACTUAL DEL USUARIO. Opciones válidas: 'DEMO', 'PRO', 'PREMIUM'
-            // 'DEMO'   -> 1 sola ronda de juegos. Todos los enlaces bloqueados.
+            // 'DEMO'   -> 1 sola ronda de juegos. Todos los enlaces bloqueados. No permite reiniciar.
             // 'PRO'    -> Juegos completos. Enlaces descargables y exclusivos activos. Entretenimiento bloqueado.
             // 'PREMIUM'-> Todo desbloqueado absolutamente.
             PLAN: 'PRO' 
         };
 
         const CONFIG_TEXTS = {
-            // Textos de los mensajes emergentes
-            mensajePro: "¡Activa la versión PRO para desbloquear este material!",
+            // Textos de los mensajes emergentes que llevan al cuadro de donación/mejora
+            mensajePro: "¡Activa la versión PRO para desbloquear todo este material maravilloso!",
             mensajePremium: "¡Activa el PLAN PREMIUM para desbloquear la Zona de Entretenimiento!",
             mensajeJuegoDemo: "¡Prueba superada! Activa la versión PRO para jugar todas las rondas completas y sin límites.",
             mensajeJuegoPremium: "¡Acceso Premium Autorizado! Estamos subiendo los nuevos contenidos de entretenimiento. ¡Vuelve pronto!",
-            mensajeReintentoDemo: "La función de repetir retos es exclusiva de la versión PRO. ¡Actívala para jugar sin límites!"
+            mensajeReintentoDemo: "La función de repetir retos es exclusiva de la versión PRO. ¡Actívala para jugar sin límites!",
+            mensajeReiniciarDemo: "Reiniciar el entrenamiento es exclusivo de la versión PRO. ¡Actívala para entrenar sin límites!"
         };
 
         const CONFIG_LINKS = {
+            // --- ENLACE DE WHATSAPP (ACTUALIZA AQUÍ TU NÚMERO Y MENSAJE) ---
+            whatsapp: "https://wa.me/51983356373?text=Hola,%20deseo%20apoyar%20el%20proyecto%20o%20mejorar%20mi%20plan%20en%20NeuroActivo%2060+",
+
             // --- ENLACE PARA DEJAR RESEÑA (FACEBOOK) ---
             resena: "https://www.facebook.com/share/p/1CkEnmqFDb/",
 
@@ -501,10 +545,39 @@
             activeGame: { cat: '', currentRound: 1, totalRounds: 3, correct: null, pool: [], answer: [], isSolShown: false, targetWords: 3 }
         };
 
+        // INICIALIZACIÓN DEL BOTÓN FLOTANTE AL CARGAR
+        document.addEventListener('DOMContentLoaded', () => {
+            const floatText = document.getElementById('float-btn-text');
+            if (floatText) {
+                if (CONFIG.PLAN === 'DEMO') floatText.innerText = 'Activar PRO';
+                else if (CONFIG.PLAN === 'PRO') floatText.innerText = 'Activar PREMIUM';
+                else floatText.innerText = 'Apoyar Proyecto';
+            }
+        });
+
+        // CONTROLADORES DE MODAL DE MEJORA Y DONACIONES
+        function openUpgradeModal(msg = "") {
+            const modal = document.getElementById('upgrade-modal');
+            const title = document.getElementById('upgrade-title');
+            const text = document.getElementById('upgrade-text');
+            
+            if (CONFIG.PLAN === 'DEMO') title.innerText = 'ACTIVA LA VERSIÓN PRO';
+            else if (CONFIG.PLAN === 'PRO') title.innerText = 'ACTIVA EL PLAN PREMIUM';
+            else title.innerText = 'APOYA NUESTRO PROYECTO';
+
+            text.innerText = msg || "Con tu valioso apoyo podemos seguir creando nuevos y mejores ejercicios para el bienestar cognitivo.";
+            
+            modal.classList.remove('hidden');
+        }
+
+        function closeUpgradeModal() {
+            document.getElementById('upgrade-modal').classList.add('hidden');
+        }
+
         // GESTIÓN DE ACCESOS SEGÚN PLAN (DEMO, PRO, PREMIUM)
         function abrirPro(url) {
             if (CONFIG.PLAN === 'DEMO') {
-                showMessage(CONFIG_TEXTS.mensajePro);
+                openUpgradeModal(CONFIG_TEXTS.mensajePro);
             } else {
                 if (url) window.open(url, '_blank');
             }
@@ -512,7 +585,7 @@
 
         function abrirPremium(url) {
             if (CONFIG.PLAN === 'DEMO' || CONFIG.PLAN === 'PRO') {
-                showMessage(CONFIG_TEXTS.mensajePremium);
+                openUpgradeModal(CONFIG_TEXTS.mensajePremium);
             } else {
                 if (url) window.open(url, '_blank');
                 else showMessage(CONFIG_TEXTS.mensajeJuegoPremium); 
@@ -520,8 +593,15 @@
         }
 
         function abrirResena() {
-            // Permitimos siempre dejar reseña independientemente del plan
             window.open(CONFIG_LINKS.resena, '_blank');
+        }
+
+        function handleReiniciar() {
+            if (CONFIG.PLAN === 'DEMO') {
+                openUpgradeModal(CONFIG_TEXTS.mensajeReiniciarDemo);
+            } else {
+                location.reload();
+            }
         }
 
         // UI HELPERS
@@ -555,10 +635,12 @@
             const planScr = document.getElementById('screen-plan');
             const nav = document.getElementById('main-nav');
             const welcome = document.getElementById('welcome-txt');
+            const floatBtn = document.getElementById('btn-upgrade-float');
             
             if(setupScr) setupScr.classList.add('hidden');
             if(planScr) planScr.classList.remove('hidden');
             if(nav) nav.classList.remove('hidden');
+            if(floatBtn) floatBtn.classList.remove('hidden'); // Mostrar botón flotante
             if(welcome) welcome.innerText = `¡Hola, ${state.name}!`;
             
             renderTaskList();
@@ -701,7 +783,7 @@
                 if (CONFIG.PLAN === 'DEMO') {
                     btn.innerHTML = 'Terminar Muestra <i class="fas fa-check-circle ml-1"></i>';
                     btn.onclick = () => {
-                        showMessage(CONFIG_TEXTS.mensajeJuegoDemo);
+                        openUpgradeModal(CONFIG_TEXTS.mensajeJuegoDemo);
                         taskDone();
                     };
                 } else {
@@ -715,7 +797,7 @@
         function handleGameHelper(action) {
             if(action === 'retry') {
                 if (CONFIG.PLAN === 'DEMO') {
-                    showMessage(CONFIG_TEXTS.mensajeReintentoDemo);
+                    openUpgradeModal(CONFIG_TEXTS.mensajeReintentoDemo);
                     return;
                 }
                 
@@ -1002,9 +1084,13 @@
 
         // NAVEGACIÓN Y MENÚS
         function navigate(screen) {
+            const floatBtn = document.getElementById('btn-upgrade-float');
             if (screen !== 'setup') {
                 const nav = document.getElementById('main-nav');
                 if (nav) nav.classList.remove('hidden');
+                if (floatBtn) floatBtn.classList.remove('hidden');
+            } else {
+                if (floatBtn) floatBtn.classList.add('hidden');
             }
 
             if (state.isFinished && screen === 'plan') {
